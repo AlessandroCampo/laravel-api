@@ -26,7 +26,7 @@ class ProjectController extends Controller
     public function store(ProjectStoreRequest $request)
     {
         $project = Project::create(
-            $request->only(['title', 'thumb', 'description'])
+            $request->only(['title', 'thumb', 'description', 'github_link'])
         );
         if ($request->has('technologies')) {
             $project->technologies()->sync($request->technologies);
@@ -56,7 +56,7 @@ class ProjectController extends Controller
     {
         // $validated_data = $request->validated();
 
-        $project->update($request->only(['title', 'thumb', 'description']));
+        $project->update($request->only(['title', 'thumb', 'description', 'github_link']));
 
 
         if ($request->has('technologies')) {

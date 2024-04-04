@@ -28,6 +28,7 @@ class ProjectUpdateRequest extends FormRequest
             'description' => 'max:8192',
             'thumb' => 'max:250|active_url|nullable',
             'technologies' => 'nullable|array',
+            'github_link' => 'nullable|max:500'
         ];
     }
 }

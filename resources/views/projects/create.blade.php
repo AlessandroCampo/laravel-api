@@ -71,6 +71,16 @@ $form_classes = 'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded
 
                     <div class="mb-5">
                         <label for="thumb" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">
+                            Github Link </label>
+                        <input type="text" name="github_link" id="github_link" class="{{ $form_classes }}"
+                            value="{{ old('github_link') }}">
+                        @error('github_link')
+                            <div class="text-red-500">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="thumb" class="block mb-2 text-sm font-bold text-gray-900 dark:text-white">
                             Project Thumb </label>
                         <input type="text" name="thumb" id="thumb" class="{{ $form_classes }}"
                             value="{{ old('thumb') }}">

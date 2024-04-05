@@ -27,7 +27,7 @@ class ProjectUpdateRequest extends FormRequest
             'title' => ['required', 'max:100', Rule::unique(Project::class)->ignore($this->project)],
             'description' => 'max:8192',
             'thumb' => 'max:250|active_url|nullable',
-            'technologies' => 'nullable|array',
+            'technologies' => ['nullable', 'array', 'exists:technologies,id'],
             'github_link' => 'nullable|max:500'
         ];
     }

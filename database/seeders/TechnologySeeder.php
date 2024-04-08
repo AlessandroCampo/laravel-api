@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Project;
 use App\Models\Technology;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -46,5 +47,11 @@ class TechnologySeeder extends Seeder
                 'logo_url' => $element['logo_url'],
             ]);
         }
+
+        Technology::all()->each(function (Technology $technology) {
+            Project::query()->limit(2)->inRandomOrder()->get()->each(function (Project $project) use ($technology) {
+                $technology->projects()->attach($project);
+            });
+        });
     }
 }

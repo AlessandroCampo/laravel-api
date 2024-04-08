@@ -23,7 +23,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('project_technology', function (Blueprint $table) {
-            //
+            $table->dropPrimary();
         });
     }
 };

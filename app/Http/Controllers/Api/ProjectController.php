@@ -18,4 +18,21 @@ class ProjectController extends Controller
             ]
         );
     }
+
+    public function show($id)
+    {
+        $project = Project::with('technologies')->find($id);
+        if ($project) {
+
+            return response()->json([
+                'project' => $project,
+                'success' => true
+            ]);
+        } else {
+            return response()->json([
+                'error' => 'No project found with id ' . $id,
+                'success' => false
+            ]);
+        }
+    }
 }

@@ -28,5 +28,8 @@ class LeadController extends Controller
 
         $new_lead = Lead::create($data);
         Mail::to('my-amazing-mail@gmail.com')->send(new NewContact($new_lead));
+        return response()->json([
+            'success' => true
+        ]);
     }
 }

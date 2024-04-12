@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\LeadController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Models\Project;
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->prefix('dashboard')->group(function () {
     Route::resource('projects', ProjectController::class);
 })->name('dashboard');
+
 
 
 require __DIR__ . '/auth.php';
